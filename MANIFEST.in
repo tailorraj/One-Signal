@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include onesignal_integration *.css
+recursive-include onesignal_integration *.csv
+recursive-include onesignal_integration *.html
+recursive-include onesignal_integration *.ico
+recursive-include onesignal_integration *.js
+recursive-include onesignal_integration *.json
+recursive-include onesignal_integration *.md
+recursive-include onesignal_integration *.png
+recursive-include onesignal_integration *.py
+recursive-include onesignal_integration *.svg
+recursive-include onesignal_integration *.txt
+recursive-exclude onesignal_integration *.pyc
