@@ -1,0 +1,194 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "ONS-.####",
+ "creation": "2023-02-21 12:13:34.371172",
+ "default_view": "List",
+ "doctype": "DocType",
+ "document_type": "System",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "column_break_2",
+  "filters",
+  "one_signal_title",
+  "document_type",
+  "event",
+  "method",
+  "date_changed",
+  "value_changed",
+  "days_in_advance",
+  "party_type",
+  "receiver_field",
+  "column_break_6",
+  "condition",
+  "html_7",
+  "message_sb",
+  "message",
+  "message_examples",
+  "type",
+  "html_head",
+  "html_message"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "filters",
+   "fieldtype": "Section Break",
+   "label": "Filters"
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Document Type",
+   "options": "DocType",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval: doc.document_type",
+   "fieldname": "event",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Send Alert On",
+   "options": "\nNew\nSave\nSubmit\nCancel\nDays After\nDays Before\nValue Change\nMethod\nCustom",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:doc.event=='Method'",
+   "description": "Trigger on valid methods like \"before_insert\", \"after_update\", etc (will depend on the DocType selected)",
+   "fieldname": "method",
+   "fieldtype": "Data",
+   "label": "Trigger Method"
+  },
+  {
+   "depends_on": "eval:doc.document_type && (doc.event==\"Days After\" || doc.event==\"Days Before\")",
+   "description": "Send alert if date matches this field's value",
+   "fieldname": "date_changed",
+   "fieldtype": "Select",
+   "label": "Reference Date"
+  },
+  {
+   "depends_on": "eval:doc.document_type && doc.event==\"Value Change\"",
+   "fieldname": "value_changed",
+   "fieldtype": "Select",
+   "label": "Value Changed"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.document_type && (doc.event==\"Days After\" || doc.event==\"Days Before\")",
+   "description": "Send days before or after the reference date",
+   "fieldname": "days_in_advance",
+   "fieldtype": "Int",
+   "label": "Days Before or After"
+  },
+  {
+   "depends_on": "eval: doc.document_type",
+   "fieldname": "receiver_field",
+   "fieldtype": "Select",
+   "label": "Receiver Field"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Optional: The alert will be sent if this expression is true",
+   "fieldname": "condition",
+   "fieldtype": "Code",
+   "ignore_xss_filter": 1,
+   "in_list_view": 1,
+   "label": "Condition"
+  },
+  {
+   "fieldname": "html_7",
+   "fieldtype": "HTML",
+   "options": "<p><strong>Condition Examples:</strong></p>\n<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>\n"
+  },
+  {
+   "fieldname": "message_sb",
+   "fieldtype": "Section Break",
+   "label": "Message"
+  },
+  {
+   "default": "Add your message here",
+   "fieldname": "message",
+   "fieldtype": "Code",
+   "ignore_xss_filter": 1,
+   "label": "Message"
+  },
+  {
+   "fieldname": "message_examples",
+   "fieldtype": "HTML",
+   "label": "Message Examples",
+   "options": "<h5>Message Example</h5>\n\n<pre>&lt;h3&gt;Order Overdue&lt;/h3&gt;\n\n&lt;p&gt;Transaction {{ doc.name }} has exceeded Due Date. Please take necessary action.&lt;/p&gt;\n\n&lt;!-- show last comment --&gt;\n{% if comments %}\nLast comment: {{ comments[-1].comment }} by {{ comments[-1].by }}\n{% endif %}\n\n&lt;h4&gt;Details&lt;/h4&gt;\n\n&lt;ul&gt;\n&lt;li&gt;Customer: {{ doc.customer }}\n&lt;li&gt;Amount: {{ doc.grand_total }}\n&lt;/ul&gt;\n</pre>"
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Link",
+   "label": "Party Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "label": "Type"
+  },
+  {
+   "fieldname": "html_head",
+   "fieldtype": "Small Text",
+   "label": "HTML Head"
+  },
+  {
+   "fieldname": "html_message",
+   "fieldtype": "Small Text",
+   "label": "HTML Message"
+  },
+  {
+   "description": "To add dynamic subject, use jinja tags like\n\n<div><pre><code>{{ doc.name }} Delivered</code></pre></div>",
+   "fieldname": "one_signal_title",
+   "fieldtype": "Data",
+   "ignore_xss_filter": 1,
+   "in_list_view": 1,
+   "label": "One Signal Title",
+   "mandatory_depends_on": "eval: in_list(['Email', 'Slack', 'System Notification'], doc.channel)"
+  }
+ ],
+ "icon": "fa fa-envelope",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-02-22 21:50:20.048943",
+ "modified_by": "Administrator",
+ "module": "Onesignal Integration",
+ "name": "One Signal Notification",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

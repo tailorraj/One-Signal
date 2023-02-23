@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-21 21:12:45.082133",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "head",
+  "message",
+  "user_id",
+  "is_read",
+  "type",
+  "content_name",
+  "content_type",
+  "html_head",
+  "html_message",
+  "user_mobile_device_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "head",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Head",
+   "reqd": 1
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Message",
+   "reqd": 1
+  },
+  {
+   "fieldname": "user_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "User"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_read",
+   "fieldtype": "Check",
+   "label": "Is Read",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Ticket\nGeneral\nPayment\nProjects\nProject General",
+   "reqd": 1
+  },
+  {
+   "fieldname": "content_name",
+   "fieldtype": "Data",
+   "label": "Content Name"
+  },
+  {
+   "fieldname": "content_type",
+   "fieldtype": "Data",
+   "label": "Content Type"
+  },
+  {
+   "fieldname": "html_head",
+   "fieldtype": "Data",
+   "label": "HTML Head"
+  },
+  {
+   "fieldname": "html_message",
+   "fieldtype": "Text Editor",
+   "label": "HTML Message"
+  },
+  {
+   "fieldname": "user_mobile_device_id",
+   "fieldtype": "Data",
+   "label": "User Mobile Device ID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-02-23 18:55:13.011860",
+ "modified_by": "Administrator",
+ "module": "Onesignal Integration",
+ "name": "Onesignal Notification Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

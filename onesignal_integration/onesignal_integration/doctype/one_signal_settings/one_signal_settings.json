@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-21 12:14:39.512695",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "settings_section",
+  "app_id",
+  "one_signal_api_key"
+ ],
+ "fields": [
+  {
+   "fieldname": "settings_section",
+   "fieldtype": "Section Break",
+   "label": "Settings"
+  },
+  {
+   "fieldname": "one_signal_api_key",
+   "fieldtype": "Password",
+   "label": "One Signal API Key"
+  },
+  {
+   "fieldname": "app_id",
+   "fieldtype": "Password",
+   "label": "One Signal App ID",
+   "length": 250
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-02-21 21:47:01.758600",
+ "modified_by": "Administrator",
+ "module": "Onesignal Integration",
+ "name": "One Signal Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

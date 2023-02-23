@@ -110,6 +110,29 @@ app_license = "MIT"
 #	}
 # }
 
+
+doc_events = {
+     "*": {
+            "validate"                      : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+            "onload"                        : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+            "before_insert"                 : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+            "after_insert"                  : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+            "before_naming"                 : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+            "before_change"                 : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+            "before_update_after_submit"    : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+            "before_validate"               : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+            "before_save"                   : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+            "autoname"                      : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+		    "on_update"                     : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+		    "on_cancel"                     : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+		    "on_trash"                      : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+		    "on_submit"                     : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+		    "on_update_after_submit"        : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+            "on_change"                     : ["onesignal_integration.onesignal_integration.doctype.one_signal_notification.one_signal_notification.run_one_signal_notifications"],
+	},
+
+
+}
 # Scheduled Tasks
 # ---------------
 
