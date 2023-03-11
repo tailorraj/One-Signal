@@ -67,14 +67,16 @@ class OneSignalNotification(Document):
 		message= frappe.render_template(self.message, context)
 		# frappe.msgprint(str(doc.get(context['alert'].receiver_field)))
 		# frappe.msgprint(str(self.party_type))
-		device_id = frappe.db.get_value("User Mobile Device",{"party":doc.get(context['alert'].receiver_field),"party_type":self.party_type},"device_id")
-		notification = {"title" : context['alert'].one_signal_title, "message":message}
-		data = {
-			"doctype":doc.doctype,
-			"docname":doc.name
-		}
+		if frappe.db.get_value("User Mobile Device",{"party":doc.get(context['alert'].receiver_field),"party_type":self.party_type},"name"):
+			device_doc = frappe.get_doc("User Mobile Device",{"party":doc.get(context['alert'].receiver_field),"party_type":self.party_type})
 		
-		res = send_push_notification(device_id, notification, data, self.type,self.html_head,self.html_message)
+			notification = {"title" : context['alert'].one_signal_title, "message":message}
+			data = {
+				"doctype":doc.doctype,
+				"docname":doc.name
+			}
+			
+			res = send_push_notification(device_doc.mobile_device_id,device_doc.user, notification, data, self.type,self.html_head,self.html_message)
 	
 @frappe.whitelist()
 def run_one_signal_notifications(doc, method):

@@ -76,13 +76,13 @@
   },
   {
    "fieldname": "user_mobile_device_id",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "User Mobile Device ID"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-23 18:55:13.011860",
+ "modified": "2023-03-11 13:07:44.641494",
  "modified_by": "Administrator",
  "module": "Onesignal Integration",
  "name": "Onesignal Notification Log",
@@ -97,6 +97,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
    "share": 1,
    "write": 1
   }

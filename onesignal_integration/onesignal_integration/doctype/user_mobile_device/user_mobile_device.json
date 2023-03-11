@@ -13,8 +13,7 @@
   "party_type",
   "party",
   "section_break_5",
-  "device_name",
-  "device_id"
+  "mobile_device_id"
  ],
  "fields": [
   {
@@ -44,23 +43,14 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "device_name",
-   "fieldtype": "Data",
-   "label": "Device Name"
-  },
-  {
-   "fieldname": "device_id",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Device ID",
-   "length": 250,
-   "reqd": 1,
-   "unique": 1
+   "fieldname": "mobile_device_id",
+   "fieldtype": "Small Text",
+   "label": "mobile_device_id"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-21 12:12:44.178316",
+ "modified": "2023-02-28 17:54:14.965258",
  "modified_by": "Administrator",
  "module": "Onesignal Integration",
  "name": "User Mobile Device",
