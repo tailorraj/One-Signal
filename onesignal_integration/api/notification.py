@@ -8,7 +8,7 @@ def get_notification_list():
             return
         
         
-        notification_list = frappe.get_list("Onesignal Notification Log",{"user_id":frappe.local.form_dict.user_id},["head","message","is_read","type","content_name","content_type","name","creation"])
+        notification_list = frappe.get_list("Onesignal Notification Log",{"user_id":frappe.local.form_dict.user_id},["head","message","is_read","type","content_name","content_type","name","creation"],order_by='creation desc')
 
         if len(notification_list) == 0:
             create_response("200","No notification found!")
